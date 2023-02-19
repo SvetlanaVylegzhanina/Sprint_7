@@ -53,7 +53,7 @@ public class LoginCourierTest {
     }
 
     @Test
-    @DisplayName("Авторизация с неверным паролеи")
+    @DisplayName("Авторизация с неверным паролем")
     public void loginCourierWithWrongPasswordFailed() {
         Courier courierWithWrongPassword = new Courier(login, wrongPassword, firstName);
         Response response = CourierApiLogic.loginCourier(courierWithWrongPassword);

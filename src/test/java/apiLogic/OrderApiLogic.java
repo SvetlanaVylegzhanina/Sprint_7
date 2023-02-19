@@ -19,7 +19,7 @@ public class OrderApiLogic {
                 .post(ORDER_API_ROOT);
     }
 
-    @Step("Отправка GET-запроса для получение списка заказов")
+    @Step("Отправка GET-запроса для получения списка заказов")
     public static Response getOrderList() {
         return given().get(ORDER_API_ROOT);
     }
