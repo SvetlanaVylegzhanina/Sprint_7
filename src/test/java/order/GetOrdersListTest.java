@@ -1,6 +1,6 @@
 package order;
 
-import apiLogic.OrderApiLogic;
+import apilogic.OrderApiLogic;
 import constants.ApiConstants;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;

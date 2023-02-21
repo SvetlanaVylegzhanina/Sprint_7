@@ -1,6 +1,7 @@
 package order;
 
-import apiLogic.OrderApiLogic;
+import apilogic.OrderApiLogic;
+import apilogic.TestColorData;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -14,19 +15,20 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(Parameterized.class)
 public class CreateOrderParamTest {
-    private final String[] color;
+    private final TestColorData testColorData;
 
-    public CreateOrderParamTest(String[] color) {
-        this.color = color;
+    public CreateOrderParamTest(TestColorData testColorData) {
+        this.testColorData = testColorData;
     }
 
-    @Parameterized.Parameters
+
+    @Parameterized.Parameters(name = "Создания заказа. Тестовые данные: {0}")
     public static Object[][] getTestData() {
         return new Object[][]{
-                {new String[]{""}},
-                {new String[]{"GREY"}},
-                {new String[]{"BLACK"}},
-                {new String[]{"BLACK", "GREY"}},
+                { new TestColorData(new String[]{""})},
+                { new TestColorData(new String[]{"GREY"})},
+                { new TestColorData(new String[]{"BLACK"})},
+                { new TestColorData(new String[]{"BLACK", "GREY"})},
         };
     }
 
@@ -39,7 +41,7 @@ public class CreateOrderParamTest {
     @DisplayName("Проверка успешного создания заказа с разными цветами")
     public void createOrderPassed() {
         Order order = new Order("Master", "TimeLord", "Universe", "1", "741258", 2, "2023-02-23", "Comment",
-                color);
+                testColorData.getColor());
 
         Response response = OrderApiLogic.createOrder(order);
 

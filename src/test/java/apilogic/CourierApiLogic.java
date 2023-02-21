@@ -1,4 +1,4 @@
-package apiLogic;
+package apilogic;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;

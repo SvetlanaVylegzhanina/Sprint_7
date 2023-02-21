@@ -1,6 +1,6 @@
 package courier;
 
-import apiLogic.CourierApiLogic;
+import apilogic.CourierApiLogic;
 import constants.ApiConstants;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
